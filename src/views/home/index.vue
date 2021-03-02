@@ -2,12 +2,17 @@
 <template>
   <div class="index-container">
     <div class="warpper">
-      <h1 class="demo-home__title"><img src="https://www.sunniejs.cn/static/weapp/logo.png" /><span> VUE H5开发模板</span></h1>
+      <h1 class="demo-home__title"><img src="https://www.sunniejs.cn/static/weapp/logo.png" /><span> 商家支付界面</span></h1>
       <h2 class="demo-home__desc">
-        A vue h5 template with Vant UI
+        微信被扫方式 
       </h2>
     </div>
     <van-cell icon="success" v-for="item in list" :key="item" :title="item" />
+
+
+
+
+
   </div>
 </template>
 
