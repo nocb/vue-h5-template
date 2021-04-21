@@ -18,6 +18,13 @@ export const constantRouterMap = [
         component: () => import('@/views/home/index'),
         meta: { title: '首页', keepAlive: false }
       },
+
+      {
+        path: '/refund',
+        name: 'Refund',
+        component: () => import('@/views/home/refund'),
+        meta: { title: '退费', keepAlive: false }
+      },
       {
         path: '/about',
         name: 'About',

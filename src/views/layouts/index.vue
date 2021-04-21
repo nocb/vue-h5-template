@@ -20,19 +20,27 @@ export default {
     return {
       tabbars: [
         {
-          title: '首页',
+          title: '被扫',
           to: {
             name: 'Home'
           },
           icon: 'home-o'
         },
         {
-          title: '关于我',
+          title: '主扫',
           to: {
             name: 'About'
           },
           icon: 'user-o'
-        }
+        },
+        {
+          title: '退费',
+          to: {
+            name: 'refund'
+          },
+          icon: 'user-o'
+        },
+        
       ]
     }
   },

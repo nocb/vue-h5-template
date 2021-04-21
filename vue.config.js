@@ -8,33 +8,7 @@ const resolve = dir => path.join(__dirname, dir)
 const name = defaultSettings.title || 'vue mobile template'
 // 生产环境，测试和正式
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
-// externals
-// const externals = {
-//   vue: 'Vue',
-//   'vue-router': 'VueRouter',
-//   vuex: 'Vuex',
-//   vant: 'vant',
-//   axios: 'axios'
-// }
-// CDN外链，会插入到index.html中
-// const cdn = {
-//   // 开发环境
-//   dev: {
-//     css: [],
-//     js: []
-//   },
-//   // 生产环境
-//   build: {
-//     css: ['https://cdn.jsdelivr.net/npm/vant@2.4.7/lib/index.css'],
-//     js: [
-//       'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
-//       'https://cdn.jsdelivr.net/npm/vue-router@3.1.5/dist/vue-router.min.js',
-//       'https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js',
-//       'https://cdn.jsdelivr.net/npm/vuex@3.1.2/dist/vuex.min.js',
-//       'https://cdn.jsdelivr.net/npm/vant@2.4.7/lib/index.min.js'
-//     ]
-//   }
-// }
+
 
 module.exports = {
   publicPath: './', // 署应用包时的基本 URL。 vue-router hash 模式使用
@@ -50,18 +24,21 @@ module.exports = {
       //  当出现编译器错误或警告时，在浏览器中显示全屏覆盖层
       warnings: false,
       errors: true
+    },
+    proxy: {
+      //配置跨域
+      '/api': {
+          target: "http://localhost:8041",
+          // target:"http://10.201.12.158:8041",
+          // target:"http://10.201.17.3:8041",    //dev 
+          // target:"http://116.62.146.53:8041",    // aliyun
+          // ws:true,
+          changOrigin:true,
+          pathRewrite:{
+              '^/api':'/'
+          }
+      }
     }
-    // proxy: {
-    //   //配置跨域
-    //   '/api': {
-    //       target: "https://test.xxx.com",
-    //       // ws:true,
-    //       changOrigin:true,
-    //       pathRewrite:{
-    //           '^/api':'/'
-    //       }
-    //   }
-    // }
   },
   css: {
     extract: IS_PROD, // 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码)。

@@ -689,6 +689,30 @@ module.exports = {
 
 ### <span id="proxy">✅ 配置 proxy 跨域 </span>
 
+
+设置代理： 
+1. 要知道真实的后台地址  
+2. env.development  中， 修改  baseApi    为  /  
+3. 修改 vue.config.js  中的文字  
+
+放开注解  
+  proxy: {
+      //配置跨域
+      '/api': {
+          target: "http://localhost:8041",
+          // ws:true,
+          changOrigin:true,
+          pathRewrite:{
+              '^/api':'/'
+          }
+      }
+    }
+
+4. 所有调用的接口，在原地址上  前面加  /api   
+
+
+
+
 如果你的项目需要跨域设置，你需要打来 `vue.config.js` `proxy` 注释 并且配置相应参数
 
 <u>**!!!注意：你还需要将 `src/config/env.development.js` 里的 `baseApi` 设置成 '/'**</u>
