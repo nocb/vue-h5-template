@@ -31,10 +31,10 @@
 import { getAction, postAction } from '@/api/manage.js'
 import Vue from 'vue'
 import { Field, Button, Toast } from 'vant'
-import { Image as VanImage } from 'vant';
-import QRCode from 'qrcodejs2';
+import { Image as VanImage } from 'vant'
+import QRCode from 'qrcodejs2'
 
-Vue.use(VanImage);
+Vue.use(VanImage)
 
 Vue.use(Field)
 Vue.use(Button)
@@ -49,10 +49,10 @@ export default {
       order: {
         mchNo: '9999',
         productName: '商品名称',
-        oldMchOrderNo:'',
-        refundMchOrderNo:'',
-        refundAmount:'0.01',
-        refundReason:'',
+        oldMchOrderNo: '',
+        refundMchOrderNo: '',
+        refundAmount: '0.01',
+        refundReason: '',
         mchOrderNo: 'shop123456',
         orderAmount: '0.01',
         channelType: 'WEIXIN',
@@ -63,44 +63,35 @@ export default {
       wechat: `${this.$cdn}/wx/640.gif`
     }
   },
-  computed: {
-  },
-  mounted() {
-  },
+  computed: {},
+  mounted() {},
   methods: {
     // 请求数据案例
     // Action 通过 store.dispatch 方法触发
 
-  refundOrder() {
-
+    refundOrder() {
       postAction(this.refundUrl, this.order).then(res => {
         console.log(res)
         if (res.code == 0) {
-
         } else {
           Toast(res.message)
         }
       })
-    },
-
+    }
   }
 }
 </script>
 <style lang="scss">
-
-
-  .qrcode
-  {
-    display: inline-block;
-    img {
-      width: 132px;
-      height: 132px;
-      background-color: #fff;
-      padding: 6px;
-      box-sizing: border-box;
-    }
+.qrcode {
+  display: inline-block;
+  img {
+    width: 132px;
+    height: 132px;
+    background-color: #fff;
+    padding: 6px;
+    box-sizing: border-box;
   }
-
+}
 
 .about-container {
   /* 你的命名空间 */
@@ -149,8 +140,6 @@ export default {
           height: auto;
         }
       }
-
-
     }
   }
 }

@@ -1170,3 +1170,47 @@ Vscode setting.json 设置
 </p>
  
 如果对你有帮助送我一颗小星星（づ￣3￣）づ╭❤～
+
+
+
+#  前端打包时 要注意  
+
+1. 命令是 ：   npm run  build    默认打的是prod 
+
+2. env.production.js   
+
+module.exports = {
+  title: 'vue-h5-template',
+  baseUrl: 'http://pay.88dkl.com', // 正式项目地址
+  baseApi: 'http://pay.88dkl.com', // 正式api请求地址
+  APPID: 'xxx',
+  APPSECRET: 'xxx',
+  $cdn: 'https://www.sunniejs.cn/static'
+}
+
+本地： env.development.js  
+// 本地环境配置
+module.exports = {
+  title: 'vue-h5-template',
+  baseUrl: 'http://localhost:8041', // 项目地址
+  baseApi: '/', // 本地api请求地址,注意：如果你使用了代理，请设置成'/'   https://test.xxx.com/api
+  APPID: 'xxx',
+  APPSECRET: 'xxx',
+  $cdn: 'https://www.sunniejs.cn/static'
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

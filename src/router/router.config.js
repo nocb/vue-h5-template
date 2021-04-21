@@ -32,5 +32,14 @@ export const constantRouterMap = [
         meta: { title: '关于我', keepAlive: false }
       }
     ]
+  },
+
+  {
+    path: '/h5pay',
+    component: () => import('@/views/h5pay/index'),
+    meta: {
+      title: 'aaaa',
+      keepAlive: false
+    },
   }
 ]
